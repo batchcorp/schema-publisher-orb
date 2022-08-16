@@ -16,7 +16,7 @@ jobs:
     steps:
       - checkout
       # Run your orb's commands to validate them.
-      - schema-publisher-orb/greet
+      - schema-publisher-orb/publish
 workflows:
   test-deploy:
     jobs:
