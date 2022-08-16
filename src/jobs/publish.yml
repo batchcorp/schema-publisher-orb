@@ -1,0 +1,43 @@
+description: >
+  Upload updated schema artifacts to a Batch.sh schema
+
+executor: default
+
+parameters:
+  apiKey:
+    type: string
+    description: "API Key obtained from your console.batch.sh account"
+  schemaId:
+    type: string
+    description: "Batch.sh Schema ID"
+  schemaName:
+    type: string
+    description: "(Optional) Updated name of the schema, ex: include version tag"
+  schemaType:
+    type: enum
+    enum: ["protobuf"]
+    default: "protobuf"
+    description: "Schema type. Currently only 'protobuf' is supported"
+  artifactType:
+    type: enum
+    default: "proto_archive"
+    enum: ["descriptor_set", "proto_archive"]
+    description: "Whether to upload a zip of .proto files or a File Descriptor Set file"
+  descriptorSetPath:
+    type: string
+    description: "Path to resulting .protoset or .fds file to be uploaded when artifactType='descriptor_set'"
+  rootDir:
+    type: string
+    description: "Path to directory containing .proto files that will be zipped and uploaded"
+  outputFile:
+    type: string
+    description: "Optional output file"
+steps:
+  - publish:
+      apiKey: << parameters.apiKey >>
+      schemaId: << parameters.schemaID >>
+      schemaName: << parameters.schemaName >>
+      artifactType: << parameters.artifactType >>
+      descriptorSetPath: << parameters.descriptorSetPath >>
+      rootDir: << parameters.rootDir >>
+      outputFile: << parameters.outputFile >>

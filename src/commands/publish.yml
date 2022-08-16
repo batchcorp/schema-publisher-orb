@@ -1,0 +1,45 @@
+description: >
+  Publish schema artifacts
+
+parameters:
+  apiKey:
+    type: string
+    description: "API Key obtained from your console.batch.sh account"
+  schemaId:
+    type: string
+    description: "Batch.sh Schema ID"
+  schemaName:
+    type: string
+    description: "(Optional) Updated name of the schema, ex: include version tag"
+  schemaType:
+    type: enum
+    enum: ["protobuf"]
+    default: "protobuf"
+    description: "Schema type. Currently only 'protobuf' is supported"
+  artifactType:
+    type: enum
+    default: "proto_archive"
+    enum: ["descriptor_set", "proto_archive"]
+    description: "Whether to upload a zip of .proto files or a File Descriptor Set file"
+  descriptorSetPath:
+    type: string
+    description: "Path to resulting .protoset or .fds file to be uploaded when artifactType='descriptor_set'"
+  rootDir:
+    type: string
+    description: "Path to directory containing .proto files that will be zipped and uploaded"
+  outputFile:
+    type: string
+    description: "Optional output file"
+steps:
+  - run:
+      environment:
+        BATCH_API_TOKEN: << parameters.apiKey >>
+        BATCH_SCHEMA_ID: << parameters.schemaId >>
+        BATCH_SCHEMA_NAME: << parameters.schemaName >>
+        BATCH_SCHEMA_TYPE: << parameters.schemaType >>
+        BATCH_ARTIFACT_TYPE: << parameters.artifactType >>
+        BATCH_DESCRIPTOR_SET_PATH: << parameters.descriptorSetPath >>
+        BATCH_ROOT_DIR: << parameters.rootDir >>
+        BATCH_OUTPUT_FILE: << parameters.outputFile >>
+      name: Publish Schemas
+      command: scripts/publish-linux

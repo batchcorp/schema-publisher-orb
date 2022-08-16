@@ -1,7 +1,7 @@
 version: 2.1
 
 description: >
-  Published updated protobuf schema artifacts to an existing Batch.sh schema
+  Published updated schema artifacts to an existing Batch.sh schema
 
 display:
   home_url: "https://docs.batch.sh/platform/components/what-are-schemas/circleci-orb"
