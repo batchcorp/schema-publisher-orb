@@ -23,7 +23,7 @@ jobs:
           artifactType: "descriptor_set"
           descriptorSetPath: "./assets/fakes.protoset"
           debug: true
-          apiToken: $API_TOKEN
+          apiToken: ""
 workflows:
   test-deploy:
     jobs:
