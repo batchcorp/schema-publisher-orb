@@ -40,6 +40,10 @@ parameters:
     type: string
     default: "https://api.batch.sh"
     description: "URL to Batch public APIs"
+  debug:
+    type: boolean
+    default: false
+    description: "Print debug information"
 steps:
   - publish:
       apiAddress: << parameters.apiAddress >>
@@ -50,3 +54,4 @@ steps:
       descriptorSetPath: << parameters.descriptorSetPath >>
       rootDir: << parameters.rootDir >>
       outputFile: << parameters.outputFile >>
+      debug: << parameters.debug >>

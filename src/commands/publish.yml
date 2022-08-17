@@ -38,6 +38,10 @@ parameters:
     type: string
     default: "https://api.batch.sh"
     description: "URL to Batch public APIs"
+  debug:
+    type: boolean
+    default: false
+    description: "Print debug information"
 steps:
   - run:
       environment:
@@ -50,5 +54,6 @@ steps:
         BATCH_DESCRIPTOR_SET_PATH: << parameters.descriptorSetPath >>
         BATCH_ROOT_DIR: << parameters.rootDir >>
         BATCH_OUTPUT_FILE: << parameters.outputFile >>
+        DEBUG: << parameters.debug >>
       name: Publish Schemas
       command: /publish
