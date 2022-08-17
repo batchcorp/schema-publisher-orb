@@ -22,6 +22,7 @@ jobs:
           schemaType: "protobuf"
           artifactType: "descriptor_set"
           descriptorSetPath: "./assets/fakes.protoset"
+          apiKey: $API_TOKEN
 workflows:
   test-deploy:
     jobs:

@@ -13,6 +13,7 @@ parameters:
   schemaName:
     type: string
     description: "(Optional) Updated name of the schema, ex: include version tag"
+    default: ""
   schemaType:
     type: enum
     enum: ["protobuf"]
@@ -26,12 +27,15 @@ parameters:
   descriptorSetPath:
     type: string
     description: "Path to resulting .protoset or .fds file to be uploaded when artifactType='descriptor_set'"
+    default: ""
   rootDir:
     type: string
     description: "Path to directory containing .proto files that will be zipped and uploaded"
+    default: ""
   outputFile:
     type: string
     description: "Optional output file"
+    default: ""
 steps:
   - publish:
       apiKey: << parameters.apiKey >>
