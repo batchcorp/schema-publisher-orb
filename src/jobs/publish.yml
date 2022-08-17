@@ -4,9 +4,6 @@ description: >
 executor: default
 
 parameters:
-  apiToken:
-    type: string
-    description: "API Key obtained from your console.batch.sh account"
   schemaId:
     type: string
     description: "Batch.sh Schema ID"
@@ -47,7 +44,6 @@ parameters:
 steps:
   - publish:
       apiAddress: << parameters.apiAddress >>
-      apiToken: << parameters.apiToken >>
       schemaId: << parameters.schemaId >>
       schemaName: << parameters.schemaName >>
       artifactType: << parameters.artifactType >>
