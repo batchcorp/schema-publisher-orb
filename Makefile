@@ -27,14 +27,29 @@ build: clean build/linux build/darwin
 .PHONY: build/linux
 build/linux: description = Build linux
 build/linux: clean
-	GOOS=linux GOARCH=amd64 $(GO) build $(GO_BUILD_FLAGS) -o ./src/scripts/$(SERVICE)-linux ./$(SERVICE)/*.go
+	GOOS=linux GOARCH=amd64 $(GO) build $(GO_BUILD_FLAGS) -o ./publish-linux ./publish/*.go
 
 .PHONY: build/darwin
 build/darwin: description = Build darwin
 build/darwin: clean
-	GOOS=darwin GOARCH=amd64 $(GO) build $(GO_BUILD_FLAGS) -o ./src/scripts/$(SERVICE)-darwin ./$(SERVICE)/*.go
+	GOOS=darwin GOARCH=amd64 $(GO) build $(GO_BUILD_FLAGS) -o ./publish-darwin ./publish/*.go
 
 .PHONY: clean
 clean: description = Remove existing build artifacts
 clean:
 	$(RM) ./src/scripts/$(SERVICE)-*
+
+### Docker
+
+.PHONY: docker/build
+docker/build: description = Build docker image
+docker/build:
+	docker build -t batchcorp/schema-publisher-orb:$(VERSION) \
+	-t batchcorp/schema-publisher-orb:latest \
+	-f ./Dockerfile .
+
+PHONY: docker/push
+docker/push: description = Push local docker image
+docker/push:
+	docker push batchcorp/schema-publisher-orb:$(VERSION) && \
+	docker push batchcorp/schema-publisher-orb:latest

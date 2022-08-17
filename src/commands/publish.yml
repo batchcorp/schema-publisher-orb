@@ -2,7 +2,7 @@ description: >
   Publish schema artifacts
 
 parameters:
-  apiKey:
+  apiToken:
     type: string
     description: "API Key obtained from your console.batch.sh account"
   schemaId:
@@ -37,7 +37,7 @@ parameters:
 steps:
   - run:
       environment:
-        BATCH_API_TOKEN: << parameters.apiKey >>
+        BATCH_API_TOKEN: << parameters.apiToken >>
         BATCH_SCHEMA_ID: << parameters.schemaId >>
         BATCH_SCHEMA_NAME: << parameters.schemaName >>
         BATCH_SCHEMA_TYPE: << parameters.schemaType >>
@@ -46,4 +46,4 @@ steps:
         BATCH_ROOT_DIR: << parameters.rootDir >>
         BATCH_OUTPUT_FILE: << parameters.outputFile >>
       name: Publish Schemas
-      command: ./scripts/publish-linux
+      command: /publish
