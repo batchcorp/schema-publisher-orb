@@ -36,8 +36,13 @@ parameters:
     type: string
     description: "Optional output file"
     default: ""
+  apiAddress:
+    type: string
+    default: "https://api.batch.sh"
+    description: "URL to Batch public APIs"
 steps:
   - publish:
+      apiAddress: << parameters.apiAddress >>
       apiToken: << parameters.apiToken >>
       schemaId: << parameters.schemaId >>
       schemaName: << parameters.schemaName >>
