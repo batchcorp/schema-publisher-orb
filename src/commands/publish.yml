@@ -46,4 +46,4 @@ steps:
         BATCH_ROOT_DIR: << parameters.rootDir >>
         BATCH_OUTPUT_FILE: << parameters.outputFile >>
       name: Publish Schemas
-      command: scripts/publish-linux
+      command: ./scripts/publish-linux
