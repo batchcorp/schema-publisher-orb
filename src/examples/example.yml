@@ -3,8 +3,13 @@ description: >
 usage:
   version: 2.1
   orbs:
-    <orb-name>: batchcorp/schema-publisher-orb@1.0.0
+    <orb-name>: batchcorp/schema-publisher-orb@0.1.0
   workflows:
     use-my-orb:
       jobs:
-        - schema-publisher-orb/publish
+        - schema-publisher-orb/publish:
+            schemaId: "7e8c3d9c-ea70-475e-832f-794abae3dead"
+            schemaName: "CircleCI test"
+            schemaType: "protobuf"
+            artifactType: "descriptor_set"
+            descriptorSetPath: "./path/to/generate.protoset"

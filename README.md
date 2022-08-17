@@ -1,17 +1,17 @@
-# Orb Template
+# schema-publisher-org
 
 
 [![CircleCI Build Status](https://circleci.com/gh/batchcorp/schema-publisher-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/batchcorp/schema-publisher-orb) [![CircleCI Orb Version](https://badges.circleci.com/orbs/batchcorp/schema-publisher-orb.svg)](https://circleci.com/orbs/registry/orb/batchcorp/schema-publisher-orb) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/batchcorp/schema-publisher-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
-
-
-A project template for Orbs.
-
-This repository is designed to be automatically ingested and modified by the CircleCI CLI's `orb init` command.
-
-_**Edit this area to include a custom title and description.**_
+Orb to publish updated protobuf artifacts to an existing Batch.sh schema
 
 ---
+
+## Required environment variables
+
+The following environment variables are required to be set in your CircleCI project before you can use this orb:
+
+`BATCH_API_TOKEN` - Obtain an API key from https://console.batch.sh/account/security
 
 ## Resources
 

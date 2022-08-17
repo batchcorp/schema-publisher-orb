@@ -1,5 +1,4 @@
 description: >
-  This is a sample executor using Docker and Node. If you want to provide a custom environment in your orb, insert your image here.
-  If you do not require an executor, you can simply delete this directory.
+  Docker image containing the publish binary used to publish updated schemas to Batch.sh
 docker:
   - image: 'batchcorp/schema-publisher-orb:latest'

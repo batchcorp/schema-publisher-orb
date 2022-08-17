@@ -22,7 +22,6 @@ jobs:
           schemaType: "protobuf"
           artifactType: "descriptor_set"
           descriptorSetPath: "./assets/fakes.protoset"
-          debug: true
 workflows:
   test-deploy:
     jobs:
