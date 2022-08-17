@@ -13,6 +13,8 @@ jobs:
   command-tests:
     docker:
       - image: batchcorp/schema-publisher-orb
+    environment:
+      BATCH_API_TOKEN: "testing"
     steps:
       - checkout
       # Run your orb's commands to validate them.
@@ -23,7 +25,6 @@ jobs:
           artifactType: "descriptor_set"
           descriptorSetPath: "./assets/fakes.protoset"
           debug: true
-          apiToken: ""
 workflows:
   test-deploy:
     jobs:
