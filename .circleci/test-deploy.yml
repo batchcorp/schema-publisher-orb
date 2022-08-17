@@ -16,7 +16,7 @@ jobs:
     steps:
       - checkout
       # Run your orb's commands to validate them.
-      - schema-publisher-orb/publish
+      - schema-publisher-orb/publish:
           schemaId: "7e8c3d9c-ea70-475e-832f-794abae3dead"
           schemaName: "CircleCI test"
           schemaType: "protobuf"
