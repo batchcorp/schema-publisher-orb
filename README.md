@@ -7,6 +7,11 @@ Orb to publish updated protobuf artifacts to an existing Batch.sh schema
 
 ---
 
+## Documentation
+
+* https://docs.batch.sh/platform/components/what-are-schemas/circleci-orb
+* https://circleci.com/developer/orbs/orb/batchcorp/schema-publisher-orb
+
 ## Required environment variables
 
 The following environment variables are required to be set in your CircleCI project before you can use this orb:
