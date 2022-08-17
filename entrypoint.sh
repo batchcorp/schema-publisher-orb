@@ -3,8 +3,8 @@
 DEBUG=$8
 
 if [[ "${DEBUG}" == "true" ]]; then
-  echo "Current directory: `pwd`"
-  echo "Contents: `ls -la`"
+  echo "Current directory: $(pwd)"
+  echo "Contents: $(ls -la)"
   echo ""
   echo "[Settings]"
   echo "schema-id: ${BATCH_SCHEMA_ID}"
